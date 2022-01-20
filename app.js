@@ -28,17 +28,15 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => {
   res.render("index");
 });
-const mongoURI= "mongodb+srv://admin:admin@cherche.wcwya.mongodb.net/Cherche?retryWrites=true&w=majority";
+const mongoURI= "mongodb+srv://admin:admin@cherche.wcwya.mongodb.net/cherche?retryWrites=true&w=majority";
 const conn= mongoose.connect(
   mongoURI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },
-  (err) => {
-    console.log("database connected");
-  }
-);
+  
+).catch(error => console.log(error));
 
 
 app.get("/service-list", (req, res) => {
